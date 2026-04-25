@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_retailer_retailer_links",
+  "info": {
+    "displayName": "Retailer Link",
+    "icon": "link",
+    "description": "Affiliate or direct link to a specific retailer"
+  },
+  "options": {},
+  "attributes": {
+    "retailer_name": { "type": "string", "required": true },
+    "affiliate_url": { "type": "string", "required": true },
+    "price": { "type": "decimal" },
+    "sale_price": { "type": "decimal" },
+    "availability": {
+      "type": "enumeration",
+      "enum": ["in_stock", "out_of_stock", "limited", "preorder"],
+      "default": "in_stock"
+    },
+    "is_affiliate": { "type": "boolean", "default": true },
+    "notes": { "type": "text" }
+  }
+}

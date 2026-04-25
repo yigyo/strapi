@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chairs",
+  "info": {
+    "singularName": "chair",
+    "pluralName": "chairs",
+    "displayName": "Chair",
+    "description": "Massage chair product entry"
+  },
+  "options": { "draftAndPublish": true },
+  "pluginsOptions": {},
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "name", "required": true },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "chairs"
+    },
+    "short_description": { "type": "text" },
+    "full_description": { "type": "richtext" },
+    "track_type": {
+      "type": "enumeration",
+      "enum": ["S", "L", "SL", "Other"],
+      "required": true
+    },
+    "roller_type": { "type": "enumeration", "enum": ["2D", "3D", "4D"] },
+    "zero_gravity": { "type": "boolean", "default": false },
+    "zero_gravity_positions": { "type": "integer" },
+    "body_scan": { "type": "boolean", "default": false },
+    "heat_therapy": { "type": "boolean", "default": false },
+    "heat_zones": { "type": "string" },
+    "airbag_count": { "type": "integer" },
+    "massage_programs": { "type": "integer" },
+    "space_saving": { "type": "boolean", "default": false },
+    "space_saving_clearance_inches": { "type": "decimal" },
+    "max_user_height_inches": { "type": "decimal" },
+    "min_user_height_inches": { "type": "decimal" },
+    "max_user_weight_lbs": { "type": "integer" },
+    "chair_weight_lbs": { "type": "integer" },
+    "chair_width_inches": { "type": "decimal" },
+    "chair_depth_inches": { "type": "decimal" },
+    "chair_height_inches": { "type": "decimal" },
+    "colors_available": { "type": "string" },
+    "warranty_years": { "type": "decimal" },
+    "msrp": { "type": "decimal" },
+    "price_range": {
+      "type": "enumeration",
+      "enum": ["under_2000", "2000_3999", "4000_5999", "6000_7999", "8000_plus"]
+    },
+    "best_for": { "type": "string" },
+    "retailer_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "retailer.retailer-link"
+    },
+    "hero_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "featured": { "type": "boolean", "default": false },
+    "staff_pick": { "type": "boolean", "default": false },
+    "staff_pick_reason": { "type": "text" },
+    "seo_title": { "type": "string" },
+    "seo_description": { "type": "text" }
+  }
+}
